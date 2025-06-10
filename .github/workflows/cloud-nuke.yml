@@ -1,9 +1,6 @@
-name: Hourly Cloud Nuke
+name: Hourly Cloud Nuke (Manual Trigger Only)
 on:
-  schedule:
-    - cron: "0 * * * *" # Runs every hour
   workflow_dispatch:
-
 
 permissions:
   id-token: write
@@ -25,7 +22,6 @@ jobs:
 
             chmod +x /usr/local/bin/cloud-nuke
         env:
-            # Authenticate to reduce the likelihood of hitting rate limit issues.
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             VERSION: 0.40.0
 
